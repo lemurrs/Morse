@@ -1,0 +1,206 @@
+*{
+    box-sizing: border-box;
+}
+p{
+    margin: 0;
+}
+
+body{
+    overflow: hidden;
+    --darkKey: #1a1919
+}
+.icons{
+    transform:scale(1.8);
+    margin-left: 1rem;
+}
+.MorsePage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.button:hover{
+    background: #1c1a1a !important;
+
+}
+
+.MorsePage__morseImage{
+    position: absolute;
+    top:0;
+    left: 0;
+    border-radius: 10px;
+  width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+.MorsePage__card{
+    position: relative;
+    width: 50vw;
+    min-height: 90vh;
+    border-radius: 20px;
+    padding-top: 1%;
+    perspective: 100rem;
+}
+.activeFront{
+    transform: rotateY(180deg);
+}
+.activeBack{
+    transform: rotateY(0deg) !important;
+}
+.card__side_front{
+    background: whitesmoke;
+}
+.card__side_back{
+    background: whitesmoke;
+    transform: rotateY(-180deg)
+}
+.card__side{
+    min-height: 90vh;
+    transition: all 0.35s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+@keyframes opacityToZero {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+
+}
+.MorsePage__keyboard{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(4,4vw);
+    gap: 0.5rem;
+
+}
+.MorsePage__keyboard>div{
+background: var(--darkKey);
+    border:1px solid black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-radius: 10px;
+}
+
+.MorsePage__keyboard>div:nth-child(n+20){
+    grid-row: 3/4;
+}
+.MorsePage__keyboard>div:last-child{
+  grid-row: 4/4;
+    grid-column: 1/-1;
+}
+.MorsePage__input{
+    background: white;
+    border-radius: 10px;
+    width: 100%;
+    word-break: break-all;
+    resize: none;
+    min-height: 100px;
+    max-height: 200px;
+    overflow: hidden;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+}
+.MorsePage__input:focus,
+.MorsePage__input:active{
+    outline: none;
+
+}
+@keyframes test {
+    0%{
+        border-radius: 5px;
+
+    }
+    25%{
+        border-radius: 20px;
+    }
+    50%{
+        border-radius: 10px;
+    }
+    75%{
+        border-radius: 20px;
+    }
+    100%{
+        border-radius: 5px;
+    }
+
+}
+
+.card__side__MorseButton:hover{
+    animation: test;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+
+
+
+}
+.MorsePage__translated{
+    padding: 0 1rem;
+    background: white;
+    border-radius: 10px;
+    min-height: 20vh;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    white-space: -moz-pre-wrap !important;
+    white-space: -o-pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+
+.glow {
+    font-size: 110px;
+    color: #fff;
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+    backface-visibility: hidden;
+
+}
+
+
+.key:hover{
+    transform: translateY(3px);
+}
+
+@keyframes glow {
+
+
+    0%{
+        /*text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;*/
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6e495d, 0 0 40px #ffdb4d, 0 0 50px #ffdb4d, 0 0 60px #ffdb4d, 0 0 70px #ffdb4d;
+        /*transform: skewY(-2deg) ;*/
+    }
+    100%{
+        /*text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;*/
+        text-shadow: 0 0 20px #fff, 0 0 30px #ffdb4d, 0 0 40px #ffdb4d, 0 0 50px #ffdb4d, 0 0 60px #ffdb4d, 0 0 70px #ffdb4d, 0 0 80px #ffdb4d;
+        /*transform: rotateY(10deg) skewY(2deg);*/
+
+
+    }
+}
+.glow1{
+    position: absolute;
+    top: 40vh;
+    left: 4vw;
+}
+.glow2{
+    position: absolute;
+    top: 40vh;
+    right: 4vw;
+}
+
