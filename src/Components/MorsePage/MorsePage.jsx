@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-
 import LineStyleIcon from '@mui/icons-material/LineStyle';
 import AbcIcon from '@mui/icons-material/Abc';
 import {useDispatch, useSelector} from "react-redux";
@@ -10,7 +9,7 @@ import {Button, Paper, TextareaAutosize, Typography} from "@mui/material";
 import Modal from '../../Modal/Modal.jsx'
 import morseImg from '../../img/morse.png'
 import {Key} from './Key'
-import {encode} from '../../Redux/MorseReducer/MorseLogic'
+
 
 
 export function MorsePage(props){
@@ -21,7 +20,6 @@ export function MorsePage(props){
     let[active,setActive]=useState(false)
     let [modalActive,setModalActive]=useState(false)
     const dispatch = useDispatch()
-        let regex =/\w/g
 
     function KeyboardHandler(str){
         setMorse(MorseWords+str+' ')
@@ -41,7 +39,15 @@ export function MorsePage(props){
                         <Typography variant="h2" component="h2" sx={{
                             textAlign:'center',
                             marginBottom:'1.5rem',
-                            marginTop:'1.5rem'
+                            marginTop:'1.5rem',
+                            fontSize:{
+                                xxs: "1.3rem",
+                                xs: "1.3rem",
+                                sm: "1.5rem",
+                                md: "1.6rem",
+                                lg: "2rem",
+                                xl: "3rem"
+                            }
                         }} >
                             English to Morse
                         </Typography>
@@ -50,18 +56,32 @@ export function MorsePage(props){
                             dispatch(translateToMorse(e.target.value))
                         }} value={NormalWords}
                         />
-
                     <div className={'MorsePage__translated'}>{morse}</div>
-
-
-                        <Button variant="contained" size="large" onClick={()=>{setActive(!active)}} sx={{
-                            position:'absolute',
+                    <div className={'buttons-wrapper'}>
+                        <Button  variant="contained" size="large" onClick={()=>{setActive(!active)}} sx={{
                             background:'var(--darkKey)',
-                            bottom:'1rem',
-                            right:'1rem'
-                        }}  endIcon={<LineStyleIcon className={'icons'} fontSize="large"   /> } className={'button'} >
+                            width:{
+                                xxs:"12rem",
+                                xs:"12rem",
+                                sm: "12rem",
+                                md: "initial",
+                            },
+                            fontSize:{
+                                xxs:"0.6rem",
+                                xs:"0.6rem",
+                                sm: "0.6rem",
+                                md: "initial",
+                            },
+                            height:{
+                                xxs:"1.4rem",
+                                xs:"1.4rem",
+                                sm: "1.4rem",
+                                md: "initial",
+                            }
+                        }}  endIcon={<LineStyleIcon  className={'icons'} /> } className={'button'} >
                             Change to morse
                         </Button>
+                    </div>
 
                 </div>
                 <div className={active? "activeBack card__side card__side_back" : "card__side card__side_back"}>
@@ -69,23 +89,77 @@ export function MorsePage(props){
                         setModalActive(true)
                     }} sx={{
                         position:'absolute',
-                        top:'1.6rem',
-                        right:'1rem',
+                        top:{
+                            xxs: "0.9rem",
+                            xs: "0.7rem",
+                            sm: "0.9rem",
+                            md: "0.9rem",
+                            lg: "0.9rem",
+                            xl: "1.2rem"
+                        },
+                        right: {
+                            xxs: "1.2rem",
+                            xs: "2rem",
+                            sm: "0.8rem",
+                            md: "1.2rem",
+                            lg: "1.2rem",
+                            xl: "1.6rem"
+                        },
                         display:'flex',
                         justifyContent:'center',
                         flexDirection:'column',
                         alignItems:'center',
-                        width:'12vw',
-                        minHeight:'7vh',
-                        fontSize:'1.7rem',
-                    }} className={"card__side__MorseButton"}><MenuBookIcon fontSize={"large"} sx={{
+                        width:{
+                            xxs: "2rem",
+                            xs: "3rem",
+                            sm: "15vw",
+                            md: "12vw",
+                        },
+                        minHeight: {
+                            xxs: "4vh",
+                            xs: "3rem",
+                            sm: "4vh",
+                            md: "4vh",
+                            lg: "4vh",
+                            xl: "7vh"
+                        },
+                        fontSize: {
+                            xxs: "0.5rem",
+                            xs: "0.5rem",
+                            sm: "0.8rem",
+                            md: "1rem",
+                            lg: "1.3rem",
+                            xl: "1.7rem"
+                        },
+                    }} className={"card__side__MorseButton"}><MenuBookIcon sx={{
+                        fontSize: {
+                            xxs: "1.5rem",
+                            xs: "1.5rem",
+                            sm: "1.5rem",
+                            md: "2rem",
+                        },
                     }}/>
-                    <Typography variant="p" component="p">See Morse Code</Typography></Paper>
+                    <Typography sx={{
+                        display:{
+                            xs:"none",
+                            sm:"initial",
+                        }
+                    }} variant="p" component="p">See Morse Code</Typography></Paper>
 
                     <Typography variant="h2" component="h2" sx={{
-                        textAlign:'center',
+                        textAlign: {
+                            md: "center",
+                        },
                         marginBottom:'1.5rem',
-                        marginTop:'1.5rem'
+                        marginTop:'1.5rem',
+                        fontSize:{
+                            xxs: "1.3rem",
+                            xs: "1.3rem",
+                            sm: "1.5rem",
+                            md: "1.6rem",
+                            lg: "2rem",
+                            xl: "3rem"
+                        }
                     }} >
                         Morse to English
                     </Typography>
@@ -128,19 +202,35 @@ export function MorsePage(props){
                         <Key children={'SPACE'} onC={KeyboardHandler}/>
                     </div>
 
-                    <Button variant="contained" size="large" onClick={()=>{setActive(!active)
-                    }} sx={{
-                        position:'absolute',
-                        background:'var(--darkKey)',
-                        bottom:'1rem',
-                        right:'1rem'
-
-                    }}  endIcon={<AbcIcon className={'icons'} fontSize="large"   /> } className={'button'} >
-                        Change to normal
-                    </Button>
+                    <div className={'buttons-wrapper'}>
+                        <Button variant="contained" size="large" onClick={()=>{setActive(!active)
+                        }} sx={{
+                            alignSelf:'flex-end',
+                            background:'var(--darkKey)',
+                            width:{
+                                xxs:"12rem",
+                                xs:"12rem",
+                                sm: "12rem",
+                                md: "initial",
+                            },
+                            fontSize:{
+                                xxs:"0.6rem",
+                                xs:"0.6rem",
+                                sm: "0.6rem",
+                                md: "initial",
+                            },
+                            height:{
+                                xxs:"1.4rem",
+                                xs:"1.4rem",
+                                sm: "1.4rem",
+                                md: "initial",
+                            }
+                        }}  endIcon={<AbcIcon className={'icons'} fontSize="large"
+                        /> } className={'button'} >
+                            Change to normal
+                        </Button>
+                    </div>
                 </div>
-
-
             </div>
             <p className={'glow glow1'}>Lemur</p>
             <p className={'glow glow2'}>Morse</p>

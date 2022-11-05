@@ -1,13 +1,26 @@
 *{
     box-sizing: border-box;
 }
-p{
-    margin: 0;
+body{
+    --cardColor:#F5F5F5FF;
+    --darkKey: #1a1919;
+    background-color: #070606;
+    overflow: hidden;
+}
+body::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url("./../../img/08969703.jpg");
+    filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-body{
-    overflow: hidden;
-    --darkKey: #1a1919
+p{
+    margin: 0;
 }
 .icons{
     transform:scale(1.8);
@@ -50,10 +63,10 @@ body{
     transform: rotateY(0deg) !important;
 }
 .card__side_front{
-    background: whitesmoke;
+    background: var(--cardColor);
 }
 .card__side_back{
-    background: whitesmoke;
+    background: var(--cardColor);
     transform: rotateY(-180deg)
 }
 .card__side{
@@ -203,4 +216,74 @@ background: var(--darkKey);
     top: 40vh;
     right: 4vw;
 }
+
+@media screen and (max-width:1492px){
+    .glow {
+        font-size: 80px;
+    }
+}
+@media screen and (max-width:1100px){
+    body{
+        overflow: inherit;
+    }
+    .glow {
+        font-size: 50px;
+}
+    .glow1{
+        left: 6vw;
+    }
+    .glow2{
+        right: 6vw;
+    }
+    .MorsePage__keyboard>div{
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width:900px){
+
+.icons{
+    transform: scale(1);
+}
+}
+@media screen and (max-width:761px){
+    .glow {
+        font-size: 40px;
+    }
+    .glow1{
+        left: 4vw;
+    }
+    .glow2{
+        right: 4vw;
+    }
+    .MorsePage__keyboard>div{
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width:600px){
+    .glow {
+        display: none;
+    }
+    .MorsePage__card{
+        width: 100%;
+    }
+
+    .MorsePage__keyboard>div{
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width:300px){
+
+
+    .MorsePage__keyboard>div{
+        font-size: 0.5rem;
+    }
+}
+.buttons-wrapper{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+
 

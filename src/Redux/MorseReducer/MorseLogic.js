@@ -39,8 +39,8 @@ export function encode(morseCode){
     };
     morseCode=morseCode.toUpperCase().split("")
     function m(code){
-        const map1=Object.getOwnPropertyDescriptor(morse,code)
-        return map1
+        return Object.getOwnPropertyDescriptor(morse,code)
+
     }
 
     return morseCode.map(el=> m(el)===undefined? '/' : m(el).value).join("")
@@ -86,9 +86,7 @@ export function decode(morseCode){
     };
     morseCode=morseCode.split(" ")
     function m(code){
-        const map1=Object.getOwnPropertyDescriptor(morse,code)
-        return map1
+        return Object.getOwnPropertyDescriptor(morse,code)
     }
-
     return morseCode.map(el=> m(el)===undefined? '/' : m(el).value).join("")
 }
