@@ -33,9 +33,7 @@ export function MorsePage(props){
 
 
             <div className={'MorsePage__card'}>
-                <div className={active? "card__side card__side_front activeFront" : "card__side card__side_front"}>
-
-
+                <div className={active? "card__side card__side_back activeBack" : "card__side card__side_back"}>
                         <Typography variant="h2" component="h2" sx={{
                             textAlign:'center',
                             marginBottom:'1.5rem',
@@ -82,9 +80,8 @@ export function MorsePage(props){
                             Change to morse
                         </Button>
                     </div>
-
                 </div>
-                <div className={active? "activeBack card__side card__side_back" : "card__side card__side_back"}>
+                <div className={active? "activeFront card__side card__side_front" : "card__side card__side_front"}>
                     <Paper elevation={3} onClick={()=>{
                         setModalActive(true)
                     }} sx={{

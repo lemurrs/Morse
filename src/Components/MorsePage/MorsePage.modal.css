@@ -30,7 +30,6 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     position: relative;
 }
 
@@ -51,9 +50,8 @@ p{
 .MorsePage__card{
     position: relative;
     width: 50vw;
-    min-height: 90vh;
     border-radius: 20px;
-    padding-top: 1%;
+    margin-top: 2%;
     perspective: 100rem;
 }
 .activeFront{
@@ -70,7 +68,6 @@ p{
     transform: rotateY(-180deg)
 }
 .card__side{
-    min-height: 90vh;
     transition: all 0.35s;
     position: absolute;
     top: 0;
