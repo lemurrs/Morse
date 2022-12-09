@@ -191,16 +191,10 @@ background: var(--darkKey);
 
 
     0%{
-        /*text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;*/
         text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6e495d, 0 0 40px #ffdb4d, 0 0 50px #ffdb4d, 0 0 60px #ffdb4d, 0 0 70px #ffdb4d;
-        /*transform: skewY(-2deg) ;*/
     }
     100%{
-        /*text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;*/
         text-shadow: 0 0 20px #fff, 0 0 30px #ffdb4d, 0 0 40px #ffdb4d, 0 0 50px #ffdb4d, 0 0 60px #ffdb4d, 0 0 70px #ffdb4d, 0 0 80px #ffdb4d;
-        /*transform: rotateY(10deg) skewY(2deg);*/
-
-
     }
 }
 .glow1{

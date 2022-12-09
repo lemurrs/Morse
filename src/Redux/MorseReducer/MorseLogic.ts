@@ -1,5 +1,5 @@
 
-export function encode(morseCode){
+export function encode(morseCode:string){
     const morse = {
         "A": ".-",
         "B": "-...",
@@ -37,17 +37,17 @@ export function encode(morseCode){
         ')': '-.--.-', '$': '...-..-','&': '. . . .','@': '.--.-.',
         " ": "/"
     };
-    morseCode=morseCode.toUpperCase().split("")
-    function m(code){
+    const splitedMorseCode:string[]=morseCode.toUpperCase().split("")
+    function m(code:string){
         return Object.getOwnPropertyDescriptor(morse,code)
 
     }
 
-    return morseCode.map(el=> m(el)===undefined? '/' : m(el).value).join("")
+    return splitedMorseCode.map((el:string)=> m(el)===undefined? '/' : m(el)?.value).join("")
 }
 
 
-export function decode(morseCode){
+export function decode(morseCode:string){
     const morse = {
         ".-": "A",
         "-...": "B",
@@ -84,9 +84,9 @@ export function decode(morseCode){
         '-.-.--': '!', '-....-': '-', '..--.-': '_', '-.--.': '(',
         '-.--.-': ')', '...-..-': '$','. . . .': '&','.--.-.': '@',
     };
-    morseCode=morseCode.split(" ")
-    function m(code){
+    const splitedMorseCode:string[]=morseCode.split("")
+    function m(code:string){
         return Object.getOwnPropertyDescriptor(morse,code)
     }
-    return morseCode.map(el=> m(el)===undefined? '/' : m(el).value).join("")
+    return splitedMorseCode.map((el:string)=> m(el)===undefined? '/' : m(el)?.value).join("")
 }

@@ -6,22 +6,23 @@ import { translateToMorse, translateToNormal} from "../../Redux/MorseReducer/Mor
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import './MorsePage.modal.css'
 import {Button, Paper, TextareaAutosize, Typography} from "@mui/material";
-import Modal from '../../Modal/Modal.jsx'
+import Modal from '../../Modal/Modal.tsx'
 import morseImg from '../../img/morse.png'
 import {Key} from './Key'
+import {appStateType} from "../../Redux/toolkitReduxStore";
 
 
 
-export function MorsePage(props){
+export function MorsePage(){
     const [NormalWords,setNormal]=useState('')
     const [MorseWords,setMorse]=useState('')
-    const morse = useSelector(state => state.MorsePage.morseWord)
-    const normal = useSelector(state => state.MorsePage.normalWord)
+    const morse = useSelector((state:appStateType) => state.MorsePage.morseWord)
+    const normal = useSelector((state:appStateType) => state.MorsePage.normalWord)
     let[active,setActive]=useState(false)
     let [modalActive,setModalActive]=useState(false)
     const dispatch = useDispatch()
 
-    function KeyboardHandler(str){
+    function KeyboardHandler(str:string){
         setMorse(MorseWords+str+' ')
         dispatch(translateToNormal(MorseWords+str))
     }
@@ -113,12 +114,12 @@ export function MorsePage(props){
                             md: "12vw",
                         },
                         minHeight: {
-                            xxs: "4vh",
+                            xxs: "3rem",
                             xs: "3rem",
-                            sm: "4vh",
-                            md: "4vh",
-                            lg: "4vh",
-                            xl: "7vh"
+                            sm: "3rem",
+                            md: "3rem",
+                            lg: "3rem",
+                            xl: "4rem"
                         },
                         fontSize: {
                             xxs: "0.5rem",
@@ -128,20 +129,13 @@ export function MorsePage(props){
                             lg: "1.3rem",
                             xl: "1.7rem"
                         },
-                    }} className={"card__side__MorseButton"}><MenuBookIcon sx={{
-                        fontSize: {
-                            xxs: "1.5rem",
-                            xs: "1.5rem",
-                            sm: "1.5rem",
-                            md: "2rem",
-                        },
-                    }}/>
+                    }} className={"card__side__MorseButton"}><MenuBookIcon/>
                     <Typography sx={{
                         display:{
                             xs:"none",
-                            sm:"initial",
+                            xl:"initial"
                         }
-                    }} variant="p" component="p">See Morse Code</Typography></Paper>
+                    }}  component="p">See Morse Code</Typography></Paper>
 
                     <Typography variant="h2" component="h2" sx={{
                         textAlign: {
@@ -169,34 +163,34 @@ export function MorsePage(props){
 
                     <div className={'MorsePage__translated'}>{MorseWords.length===0? '' :normal}</div>
                     <div className={'MorsePage__keyboard'}>
-                        <Key children={'Q'} onC={KeyboardHandler}/>
-                        <Key children={'W'} onC={KeyboardHandler}/>
-                        <Key children={'E'} onC={KeyboardHandler}/>
-                        <Key children={'R'} onC={KeyboardHandler}/>
-                        <Key children={'T'} onC={KeyboardHandler}/>
-                        <Key children={'Y'} onC={KeyboardHandler}/>
-                        <Key children={'U'} onC={KeyboardHandler}/>
-                        <Key children={'I'} onC={KeyboardHandler}/>
-                        <Key children={'O'} onC={KeyboardHandler}/>
-                        <Key children={'P'} onC={KeyboardHandler}/>
-                        <Key children={'A'} onC={KeyboardHandler}/>
-                        <Key children={'S'} onC={KeyboardHandler}/>
-                        <Key children={'D'} onC={KeyboardHandler}/>
-                        <Key children={'F'} onC={KeyboardHandler}/>
-                        <Key children={'G'} onC={KeyboardHandler}/>
-                        <Key children={'H'} onC={KeyboardHandler}/>
-                        <Key children={'J'} onC={KeyboardHandler}/>
-                        <Key children={'K'} onC={KeyboardHandler}/>
-                        <Key children={'L'} onC={KeyboardHandler}/>
-                        <Key children={'Z'} onC={KeyboardHandler}/>
-                        <Key children={'X'} onC={KeyboardHandler}/>
-                        <Key children={'C'} onC={KeyboardHandler} />
-                        <Key children={'V'} onC={KeyboardHandler}/>
-                        <Key children={'B'} onC={KeyboardHandler} />
-                        <Key children={'N'} onC={KeyboardHandler}/>
-                        <Key children={'M'} onC={KeyboardHandler}/>
-                        <Key children={'.'} onC={KeyboardHandler}/>
-                        <Key children={'SPACE'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'Q'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'W'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'E'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'R'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'T'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'Y'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'U'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'I'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'O'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'P'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'A'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'S'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'D'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'F'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'G'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'H'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'J'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'K'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'L'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'Z'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'X'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'C'} onC={KeyboardHandler} />
+                        <Key keyboardButton={'V'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'B'} onC={KeyboardHandler} />
+                        <Key keyboardButton={'N'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'M'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'.'} onC={KeyboardHandler}/>
+                        <Key keyboardButton={'SPACE'} onC={KeyboardHandler}/>
                     </div>
 
                     <div className={'buttons-wrapper'}>
