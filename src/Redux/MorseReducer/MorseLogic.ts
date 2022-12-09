@@ -84,7 +84,7 @@ export function decode(morseCode:string){
         '-.-.--': '!', '-....-': '-', '..--.-': '_', '-.--.': '(',
         '-.--.-': ')', '...-..-': '$','. . . .': '&','.--.-.': '@',
     };
-    const splitedMorseCode:string[]=morseCode.split("")
+    const splitedMorseCode:string[]=morseCode.split(" ")
     function m(code:string){
         return Object.getOwnPropertyDescriptor(morse,code)
     }
